@@ -32,7 +32,21 @@ export default function Page() {
     const {register, handleSubmit, formState: {errors},} = useForm<ContactForm>({
         resolver: yupResolver(validation),
     });
-    const submit: SubmitHandler<ContactForm> = () => {
+    const submit: SubmitHandler<ContactForm> = async (data: ContactForm) => {
+        const res = await fetch("/contact/sendMail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if(res.ok) {
+            alert('お問い合わせを送信しました。');
+        } else {
+            alert("正常に送信できませんでした。");
+            console.log(res.status)
+        }
     };
 
     return (
