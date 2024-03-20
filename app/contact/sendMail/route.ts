@@ -19,18 +19,18 @@ export async function POST(request: NextRequest) {
     });
 
     const mailData = {
-        from: req.name,
+        from: process.env.GMAILUSER,
         to: process.env.GMAILUSER,
-        subject: `【ポートフォリオサイト】${req.company}様からの問い合わせ`,
+        subject: `【ポートフォリオサイト通知】${req.company} 様からのお問い合わせ`,
         text: `${req.message} from ${req.email}`,
         html: `
-            <p>【会社】</p>
+            <p>【会社名】</p>
             <p>${req.company}</p>
             <p>【お名前】</p>
             <p>${req.name}</p>
             <p>【メールアドレス】</p>
             <p>${req.email}</p>
-            <p>【内容】</p>
+            <p>【お問い合わせ内容】</p>
             <p>${req.message}</p>
         `,
     }

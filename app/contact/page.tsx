@@ -4,7 +4,6 @@ import { FormControl, TextField, Stack, Box, Button, Typography } from '@mui/mat
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Router from 'next/router';
 
 const requiredMessage: string = "必須項目です。";
 const invalidEmailMessage: string = "正しいメールアドレスを入力してください。";
@@ -45,7 +44,6 @@ export default function Page() {
             alert('お問い合わせを送信しました。');
         } else {
             alert("正常に送信できませんでした。");
-            console.log(res.status)
         }
     };
 
