@@ -1,3 +1,9 @@
+import CardGrid from "../_components/card-grid"
+
 export default function Page () {
-    return <p>Works Page</p>
+    return (
+        <>
+            <CardGrid/>
+        </>
+    );
 }

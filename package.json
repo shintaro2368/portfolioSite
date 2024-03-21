@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@mui/material": "^5.15.14",
     "@types/nodemailer": "^6.4.14",
+    "microcms-js-sdk": "^3.0.0",
     "next": "^14.1.4",
     "nodemailer": "^6.9.12",
     "react": "^18",

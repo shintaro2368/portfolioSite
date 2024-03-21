@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
         `,
     }
 
+    // メールを送信
     transport.sendMail(mailData, function(error, info) {
         if(error) {
             console.log("failed to send email");
