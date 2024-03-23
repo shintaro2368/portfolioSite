@@ -17,10 +17,10 @@ export default async function CardGrid() {
     return(
         <>
             <Grid container spacing={2}>
-                {worksData.contents.map((work: any) => {
+                {worksData.contents.map((work: any, index: number) => {
                     console.log(work.image.url);
                     return (
-                        <Grid item xs={4}>
+                        <Grid item xs={4} key={index}>
                             <WorkCard title={work.title} description={work.description} url="/" imagePath={work.image.url}
                             />
                         </Grid>
