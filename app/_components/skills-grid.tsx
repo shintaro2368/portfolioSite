@@ -20,6 +20,7 @@ export async function SkillsGrid() {
             <Grid item xs={6} key={index}>
               <SkillCard
                 title={skill.title}
+                iconId={skill.iconCode}
                 description={skill.description}
                 skills={skill.skills}
               />
