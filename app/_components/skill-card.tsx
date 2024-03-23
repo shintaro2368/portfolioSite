@@ -23,9 +23,9 @@ export default function SkillCard(props: any) {
               </TableHead>
               {/* ヘッダー ここまで */}
               <TableBody>
-                {props.skills.map((skill: any) => {
+                {props.skills.map((skill: any, index: number) => {
                   return (
-                    <TableRow>
+                    <TableRow key={index}>
                       {/* 技術 */}
                       <TableCell align="center" component="th">{skill.name}</TableCell>
                       {/* 経験期間 */}

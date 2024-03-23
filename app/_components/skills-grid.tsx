@@ -14,10 +14,10 @@ export async function SkillsGrid() {
 
   return (
     <>
-      <Grid container spacing={10}>
-        {skills.contents.map((skill: any) => {
+      <Grid container spacing={3} columnSpacing={10}>
+        {skills.contents.map((skill: any, index: number) => {
           return (
-            <Grid item xs={6}>
+            <Grid item xs={6} key={index}>
               <SkillCard
                 title={skill.title}
                 description={skill.description}
