@@ -7,8 +7,8 @@ import CopyRight from "./_components/copy-right";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "桝井真太郎のポートフォリオサイトへようこそ。",
+  title: "shintaro's portfolio",
+  description: "桝井 真太郎(ますい しんたろう)のポートフォリオサイトへようこそ。",
 };
 
 export default function RootLayout({
@@ -19,17 +19,17 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`$inter.className bg-black text-white`}>
-          <div className="max-w-7xl m-auto">
-            <header>
-              <Nav/>
-            </header>
-            <main>
-              {children}
-            </main>
-            <footer>
-              <CopyRight/>
-            </footer>
-          </div>
+        <div className="max-w-7xl m-auto px-2">
+          <header>
+            <Nav />
+          </header>
+          <main className="min-h-[calc(100vh_-_176px)]">
+            {children}
+          </main>
+          <footer>
+            <CopyRight />
+          </footer>
+        </div>
       </body>
     </html>
   );
