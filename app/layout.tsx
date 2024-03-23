@@ -23,7 +23,7 @@ export default function RootLayout({
           <header>
             <Nav />
           </header>
-          <main className="min-h-[calc(100vh_-_176px)]">
+          <main className="min-h-[calc(100vh_-_176px)] py-10">
             {children}
           </main>
           <footer>
