@@ -9,10 +9,10 @@ export type CardData = {
 };
 
 
-export default function WorkCard(props: CardData) {
+export default function WorkCard(props: any) {
     return(
         <Box>
-            <Card key={props.url}>
+            <Card key={props.url} style={{height: "390px"}}>
                 {/* 別タブで表示させる */}
                 <CardActionArea href={props.url} target="_blank">
                     <CardMedia
