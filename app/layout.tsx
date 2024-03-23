@@ -7,7 +7,7 @@ import CopyRight from "./_components/copy-right";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "shintaro's portfolio",
+  title: "shintaro&aposs portfolio",
   description: "桝井 真太郎(ますい しんたろう)のポートフォリオサイトへようこそ。",
 };
 
