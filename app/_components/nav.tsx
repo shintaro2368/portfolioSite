@@ -5,7 +5,7 @@ export default function Nav() {
   return (
     <div className="flex justify-between items-center h-28">
       <Logo />
-      <div className="flex justify-between w-1/3">
+      <div className="flex justify-between w-fit">
         <NavLinks />
       </div>
     </div>
