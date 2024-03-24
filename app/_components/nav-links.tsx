@@ -32,7 +32,7 @@ export default function NavLinks(): JSX.Element {
           >
             <Box display="flex" alignItems="center">
               {<link.icon/>}
-              <Typography variant="inherit" paddingX={0.5}>{link.name}</Typography>
+              <Typography variant="inherit" paddingX={0.5} className="tracking-wider">{link.name}</Typography>
             </Box>
           </Link>
         )

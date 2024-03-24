@@ -6,10 +6,10 @@ export default function Page() {
   return (
       <Box component="div">
         <Box borderLeft={3} paddingLeft={4} paddingY={2}>
-          <Typography variant="h1" className="animate-slide-in-top">
+          <Typography variant="h1" className="animate-slide-in-top tracking-wide">
               Hello, I&apos;m<br/>Shintaro Masui
           </Typography>
-          <Box component="div" className="animate-text-focus-in justify-between" display="flex" maxWidth={630} alignItems="center">
+          <Box component="div" className="animate-text-focus-in justify-between" display="flex" maxWidth={630} alignItems="center" py={2}>
             <Box component="div">
               <Typography variant="body1">A university student</Typography>
               <Typography variant="body1">Apprentice Web developer</Typography>

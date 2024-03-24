@@ -4,7 +4,7 @@ export default function Logo() {
     return(
         <div className="">
             <Link key="Home" href="/">
-                <h1 className="text-4xl">SHINTARO</h1>
+                <h1 className="text-4xl tracking-wider">SHINTARO</h1>
             </Link>
         </div>
     )
