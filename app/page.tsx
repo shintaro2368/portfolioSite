@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function Page() {
   return (
       <Box borderLeft={2} paddingLeft={2} component="div" className="">
-        <Typography variant="h1" className="animate-slide-in-top">Hello, I&aposm<br/>Shintaro Masui</Typography>
-        <Box component="div" className="animate-slide-in-fwd-bottom justify-between" display="flex" maxWidth={630} alignItems="center">
+        <Typography variant="h1" className="animate-slide-in-top">Hello, I&apos;m<br/>Shintaro Masui</Typography>
+        <Box component="div" className="animate-text-focus-in justify-between" display="flex" maxWidth={630} alignItems="center">
           <Box component="div">
             <Typography variant="body1">A university student</Typography>
             <Typography variant="body1">Apprentice Web developer</Typography>
