@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`$inter.className bg-black text-white`}>
+      <body className={`${inter.className} bg-black text-white select-none`}>
         <div className="max-w-7xl m-auto px-2">
           <header>
             <Nav />
