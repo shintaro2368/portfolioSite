@@ -21,25 +21,27 @@ export default function SkillCard(props: any) {
 
   return (
     <>
-      <Card key={props.title} style={{ height: "100%" }}>
+      <Card key={props.title} style={{ height: "100%", padding: "1.1em"}}>
         <CardContent>
-          <Box>
-            <Typography variant="h3" align="center" padding={2} display="flex" alignItems="center">
+          <Box component="div" display="flex" justifyContent="center">
+            <Typography gutterBottom variant="h3" padding={2} display="flex" alignItems="center">
               {SkillIcon && <SkillIcon fontSize="inherit"/>}
-              {props.title}
+              <Box component="div" paddingX={1} color="#1e1e1e" className="font-bold">
+                {props.title}
+              </Box>
             </Typography>
           </Box>
-          <Typography variant="body2" className="whitespace-pre-wrap" mb={3}>
+          <Typography variant="body2" className="whitespace-pre-wrap" mb={3} height={50}>
             {props.description}
           </Typography>
           <TableContainer component={Paper}>
             <Table>
               {/* ヘッダー ここから */}
-              <TableHead>
+              <TableHead style={{backgroundColor: "#7d7d7d"}}>
                 <TableRow>
-                  <TableCell align="center">技術</TableCell>
-                  <TableCell align="center">経験</TableCell>
-                  <TableCell align="center">習熟度</TableCell>
+                  <TableCell align="center" className="text-white font-semibold">技術</TableCell>
+                  <TableCell align="center" className="text-white font-semibold">経験</TableCell>
+                  <TableCell align="center" className="text-white font-semibold">スキル</TableCell>
                 </TableRow>
               </TableHead>
               {/* ヘッダー ここまで */}
@@ -53,7 +55,7 @@ export default function SkillCard(props: any) {
                       <TableCell align="center">{skill.period}</TableCell>
                       {/* 習熟度 星で表示 */}
                       <TableCell align="center">
-                        <Rating name={skill.name} readOnly value={skill.rate} />
+                        <Rating name={skill.name} readOnly value={skill.rate} size={ skill.rate >= 3 ? "large" : "medium"}/>
                       </TableCell>
                     </TableRow>
                   )
