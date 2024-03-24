@@ -31,7 +31,7 @@ export default function NavLinks(): JSX.Element {
           <Link
             key={link.name}
             href={link.href}
-            className="mx-3"
+            className="mx-3 hover:opacity-60"
           >
             <Box display="flex" alignItems="center">
               {<link.icon/>}

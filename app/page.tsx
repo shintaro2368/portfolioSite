@@ -16,7 +16,7 @@ export default function Page() {
               <Typography variant="body1">Living Oosaka in Japan</Typography>
             </Box>
             <Box component="div" display="flex" height={30}>
-              <Link href="/about">
+              <Link href="/about" className="hover:opacity-60">
                   {"Who is shintaro ? "}
                   <ArrowForwardIosIcon/>
               </Link>

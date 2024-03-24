@@ -16,6 +16,7 @@ const config: Config = {
       animation: {
         "slide-in-top": "slide-in-top 1.75s cubic-bezier(0.165, 0.840, 0.440, 1.000)   both",
         "text-focus-in": "text-focus-in 0.75s ease-in 1.8s  both",
+        "color-change-2x": "color-change-2x 2s linear  infinite alternate both",
       },
       keyframes: {
         "slide-in-top": {
@@ -30,14 +31,22 @@ const config: Config = {
         },
         "text-focus-in": {
           "0%": {
-              filter: "blur(12px)",
-              opacity: "0"
+            filter: "blur(12px)",
+            opacity: "0"
           },
           to: {
-              filter: "blur(0)",
-              opacity: "1"
+            filter: "blur(0)",
+            opacity: "1"
           }
-      },
+        },
+        "color-change-2x": {
+          "0%": {
+            background: "#2f2f2f"
+          },
+          to: {
+            background: "#000"
+          }
+        },
       },
     },
   },
