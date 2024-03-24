@@ -5,6 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PageTitle from '../_components/page-titile';
+import Popup from '../_components/popup';
+import { useRef, useState } from 'react';
 
 const requiredMessage: string = "必須項目です。";
 const invalidEmailMessage: string = "正しいメールアドレスを入力してください。";
@@ -29,10 +31,28 @@ const validation = yup.object({
 // お問い合わせページ
 export default function Page() {
 
+  // お問い合わせを送信しているかの判定
+  const submiting = useRef(false);
+
+  // 問い合わせ成功時のダイアログの表示を判定
+  const [open, setOpen] = useState(false);
+
+  // ダイアログ表示
+  function handleOpne() {
+    setOpen(true);
+  }
+
+  // ダイアログのOKを押下すると発火
+  function handleClose() {
+    setOpen(false);
+    location.href = "/";
+  }
+
   const { register, handleSubmit, formState: { errors }, } = useForm<ContactForm>({
     resolver: yupResolver(validation),
   });
   const submit: SubmitHandler<ContactForm> = async (data: ContactForm) => {
+    submiting.current = true;
     const res = await fetch("/contact/sendMail", {
       method: "POST",
       headers: {
@@ -42,7 +62,7 @@ export default function Page() {
     });
 
     if (res.ok) {
-      alert('お問い合わせを送信しました。');
+      handleOpne();
     } else {
       alert("正常に送信できませんでした。");
     }
@@ -60,12 +80,20 @@ export default function Page() {
               <TextField required label="お問い合わせ内容" multiline rows={6}  {...register("message")} helperText={errors.message?.message} />
             </Stack>
             <Stack mt={2} alignItems="center">
-              <Button onClick={handleSubmit(submit)}>
+              <Button onClick={handleSubmit(submit)} disabled={submiting.current}>
                 送信
               </Button>
             </Stack>
           </FormControl>
         </Box>
+        <Popup
+          open={open}
+          handleClose={handleClose}
+          title="確認"
+          description="お問い合わせありがとうございます。
+          ご返信まで今しばらくお待ちください。
+          OKを押すとトップへ遷移します。"
+        />
       </Box>
     </PageTitle>
   );
