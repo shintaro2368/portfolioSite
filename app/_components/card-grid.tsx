@@ -20,7 +20,7 @@ export default async function CardGrid() {
         {worksData.contents.map((work: any, index: number) => {
           console.log(work.image.url);
           return (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={12} md={6} lg={4} key={index}>
               <WorkCard title={work.title} description={work.description} skills={work.skills} url="/" imagePath={work.image.url}
               />
             </Grid>
