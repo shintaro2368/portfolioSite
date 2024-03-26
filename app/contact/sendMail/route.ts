@@ -1,54 +1,28 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import EmailTemplate from "@/app/_components/email-template";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer, { Transporter } from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY as string);
 
 export async function POST(request: NextRequest) {
+    const {company, name, email, message } = await request.json();
 
-    const req = await request.json();
-
-    const transport: Transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        auth: {
-            user: process.env.GMAILUSER,
-            pass: process.env.GMAILPASSWORD,
-        },
-        tls: {
-            rejectUnauthorized: false,
-        },
+    const { data, error } = await resend.emails.send({
+        from: `Shintaro-Portfolio System <${process.env.RESEND_DOMAIN}>`,
+        to: [process.env.RESEND_DOMAIN as string, process.env.MY_EMAIL as string],
+        subject: `【ポートフォリオサイト】 ${name} 様からのお問い合わせ`,
+        react: EmailTemplate({company: company, fullName: name, email: email, body: message}),
     });
 
-    const mailData = {
-        from: process.env.GMAILUSER,
-        to: process.env.GMAILUSER,
-        subject: `【ポートフォリオサイト通知】${req.company} 様からのお問い合わせ`,
-        text: `${req.message} from ${req.email}`,
-        html: `
-            <p>【会社名】</p>
-            <p>${req.company}</p>
-            <p>【お名前】</p>
-            <p>${req.name}</p>
-            <p>【メールアドレス】</p>
-            <p>${req.email}</p>
-            <p>【お問い合わせ内容】</p>
-            <p>${req.message}</p>
-        `,
+    if(error) {
+        console.log(error.message);
+        return new NextResponse("error", {
+            status: 500,
+        });
     }
-
-    // メールを送信
-    transport.sendMail(mailData, function(error, info) {
-        if(error) {
-            console.log("failed to send email");
-            console.error(error.stack);
-            return new NextResponse("error", {
-                status: 500,
-            });
-        } else {
-            console.log(info);
-        }
-    });
-
-    return new NextResponse('ok', {
+    
+    return new NextResponse("ok", {
         status: 200,
-    });
+    })
 }
