@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer, { Transporter } from "nodemailer";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY as string);
+const resend = new Resend(process.env.RESEND_API_KEY as string || '');
 
 export async function POST(request: NextRequest) {
     const {company, name, email, message } = await request.json();
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
             status: 500,
         });
     }
-    
+
     return new NextResponse("ok", {
         status: 200,
     })
