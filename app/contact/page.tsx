@@ -1,6 +1,6 @@
 'use client'
 
-import { FormControl, TextField, Stack, Box, Button, Typography } from '@mui/material';
+import { FormControl, TextField, Stack, Box, Button, Typography, Container } from '@mui/material';
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -71,21 +71,23 @@ export default function Page() {
   return (
     <PageTitle title="Contact">
       <Box bgcolor="white" padding={4} borderRadius={3}>
-        <Box width={600} m="0 auto">
-          <FormControl fullWidth>
-            <Stack spacing={2} direction="column">
-              <TextField required label="会社名" {...register("company")} helperText={errors.company?.message} />
-              <TextField required label="お名前" {...register("name")} helperText={errors.name?.message} />
-              <TextField required label="メールアドレス" type='email' {...register("email")} helperText={errors.email?.message} />
-              <TextField required label="お問い合わせ内容" multiline rows={6}  {...register("message")} helperText={errors.message?.message} />
-            </Stack>
-            <Stack mt={2} alignItems="center">
-              <Button onClick={handleSubmit(submit)} disabled={submiting.current}>
-                送信
-              </Button>
-            </Stack>
-          </FormControl>
-        </Box>
+        <Container>
+          <Box width={500}>
+            <FormControl fullWidth>
+              <Stack spacing={2} direction="column">
+                <TextField required label="会社名" {...register("company")} helperText={errors.company?.message} />
+                <TextField required label="お名前" {...register("name")} helperText={errors.name?.message} />
+                <TextField required label="メールアドレス" type='email' {...register("email")} helperText={errors.email?.message} />
+                <TextField required label="お問い合わせ内容" multiline rows={6}  {...register("message")} helperText={errors.message?.message} />
+              </Stack>
+              <Stack mt={2} alignItems="center">
+                <Button onClick={handleSubmit(submit)} disabled={submiting.current}>
+                  送信
+                </Button>
+              </Stack>
+            </FormControl>
+          </Box>
+        </Container>
         <Popup
           open={open}
           handleClose={handleClose}

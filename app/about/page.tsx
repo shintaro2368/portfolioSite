@@ -13,17 +13,15 @@ export default async function Page() {
     endpoint: "profile",
   });
 
-  console.log(profileData);
-
 
   return (
     <>
     <PageTitle title="About">
-      <Box display="flex" alignItems="center">
-        <Box flexBasis="40%">
+      <Box display="flex" sx={{alignItems: {xs: "unset", sm: "center"}, flexDirection: {xs: "column", sm: "unset"}}}>
+        <Box flexBasis="40%" sx={{marginBottom: {xs: 10, sm: 0}}}> 
           <Image
             src={profileData.image.url}
-            alt=""
+            alt="桝井真太郎の顔写真です"
             layout="responsive"
             width={0}
             height={0}
@@ -31,7 +29,7 @@ export default async function Page() {
           />
 
         </Box>
-        <Box flexBasis="60%" paddingLeft={6}>
+        <Box flexBasis="60%" sx={{paddingLeft: {xs: 0, sm: 6}}}>
           <p className="whitespace-pre-wrap">
             {profileData.body}
           </p>
