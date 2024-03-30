@@ -23,12 +23,14 @@ export default function Hamburger() {
         {!isOpen && <MenuIcon style={{ fontSize: 48 }} />}
       </div>
       <Drawer anchor='right' open={isOpen} onClose={handleChageIsOpen}>
-        <Box width={200}>
-          <Box component="div" onClick={handleChageIsOpen} className='flex mb-8 flex-row-reverse'>
-            <CloseIcon fontSize='large' />
+        <Box width={180}>
+          <Box component="div" onClick={handleChageIsOpen} className='w-fit flex mb-8 flex-row-reverse'>
+            <CloseIcon className='text-4xl'/>
           </Box>
-          <Box component="div" className='flex flex-col'>
-            <NavLinks handleOnClick={handleChageIsOpen}/>
+          <Box component="div" className="mt-28">
+            <Box component="div" className='flex flex-col'>
+              <NavLinks handleOnClick={handleChageIsOpen}/>
+            </Box>
           </Box>
         </Box>
       </Drawer>
