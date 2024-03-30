@@ -8,7 +8,7 @@ import { SvgIconComponent } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 
 // ナビゲーションのリンクを定義しています
-export default function NavLinks(): JSX.Element {
+export default function NavLinks({handleOnClick}: any): JSX.Element {
 
   type link = {
     readonly icon: SvgIconComponent,
@@ -31,11 +31,14 @@ export default function NavLinks(): JSX.Element {
           <Link
             key={link.name}
             href={link.href}
-            className="mx-3 hover:opacity-60"
+            className="mx-3 hover:opacity-60 mb-3 sm:mb-0"
+            onClick={handleOnClick}
           >
-            <Box display="flex" alignItems="center">
+            <Box display="flex" component="div" alignItems="center" sx={{fontSize: {xs: 24, sm: 18}}}>
               {<link.icon/>}
-              <Typography variant="inherit" paddingX={0.5} className="tracking-wider">{link.name}</Typography>
+              <Typography variant="inherit" paddingX={0.5} className="tracking-wider">
+                  {link.name}
+              </Typography>
             </Box>
           </Link>
         )
