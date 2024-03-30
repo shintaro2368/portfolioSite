@@ -70,33 +70,29 @@ export default function Page() {
 
   return (
     <PageTitle title="Contact">
-      <Box bgcolor="white" padding={4} borderRadius={3}>
-        <Container>
-          <Box width={500}>
-            <FormControl fullWidth>
-              <Stack spacing={2} direction="column">
-                <TextField required label="会社名" {...register("company")} helperText={errors.company?.message} />
-                <TextField required label="お名前" {...register("name")} helperText={errors.name?.message} />
-                <TextField required label="メールアドレス" type='email' {...register("email")} helperText={errors.email?.message} />
-                <TextField required label="お問い合わせ内容" multiline rows={6}  {...register("message")} helperText={errors.message?.message} />
-              </Stack>
-              <Stack mt={2} alignItems="center">
-                <Button onClick={handleSubmit(submit)} disabled={submiting.current}>
-                  送信
-                </Button>
-              </Stack>
-            </FormControl>
-          </Box>
-        </Container>
-        <Popup
-          open={open}
-          handleClose={handleClose}
-          title="確認"
-          description="お問い合わせありがとうございます。
+      <Box component="div" className='bg-white w-full flex justify-center p-3 sm:p-8 rounded-2xl'>
+        <FormControl fullWidth className='max-w-[600px]'>
+          <Stack spacing={2} direction="column">
+            <TextField required label="会社名" {...register("company")} helperText={errors.company?.message} />
+            <TextField required label="お名前" {...register("name")} helperText={errors.name?.message} />
+            <TextField required label="メールアドレス" type='email' {...register("email")} helperText={errors.email?.message} />
+            <TextField required label="お問い合わせ内容" multiline rows={6}  {...register("message")} helperText={errors.message?.message} />
+          </Stack>
+          <Stack mt={6} alignItems="center">
+            <Button onClick={handleSubmit(submit)} disabled={submiting.current} color="inherit" className='w-full sm:w-80 bg-black hover:text-black h-16 sm:h-9'>
+              送信
+            </Button>
+          </Stack>
+        </FormControl>
+      </Box>
+      <Popup
+        open={open}
+        handleClose={handleClose}
+        title="確認"
+        description="お問い合わせありがとうございます。
           ご返信まで今しばらくお待ちください。
           OKを押すとトップへ遷移します。"
-        />
-      </Box>
+      />
     </PageTitle>
   );
 }
