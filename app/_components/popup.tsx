@@ -5,9 +5,6 @@ import { useState } from 'react';
 
 export default function Popup({open, handleClose, title, description}: any) {
 
-  console.log(title + description);
-
-
   return(
     <Dialog
       open={open}

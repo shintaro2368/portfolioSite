@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import PageTitle from '../_components/page-titile';
 import Popup from '../_components/popup';
 import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const requiredMessage: string = "必須項目です。";
 const invalidEmailMessage: string = "正しいメールアドレスを入力してください。";
@@ -37,6 +38,8 @@ export default function Page() {
   // 問い合わせ成功時のダイアログの表示を判定
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
+
   // ダイアログ表示
   function handleOpne() {
     setOpen(true);
@@ -45,7 +48,7 @@ export default function Page() {
   // ダイアログのOKを押下すると発火
   function handleClose() {
     setOpen(false);
-    location.href = "/";
+    router.push("/");
   }
 
   const { register, handleSubmit, formState: { errors }, } = useForm<ContactForm>({
